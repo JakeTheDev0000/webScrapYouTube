@@ -19,18 +19,32 @@ def main():
 
     page_soup = bs(page_html, "html.parser")
 
-    cantainers = page_soup.find_all("div", {"class":"item-container"})
+    cantainers = page_soup.find_all("div", {"class":"item-cell"})
 
     print(len(cantainers))
     print()
 
     for container in cantainers:
         try:
-            brand = container.a.div.div.a.img["title"]
+            #item_cell_13-145-240_1_0 > div > div.item-info > div > a.item-brand > img
+            brand = container.div.div.div.a.img["title"]
             print(brand)
+            #item_cell_13-145-240_1_0 > div > a > img
+            print()
+            item_name = container.div.a.img["title"]
+            print(item_name)
+            print()
+            #item_cell_13-145-240_1_0 > div > div.item-action > ul > li.price-current > strong
+            #item_cell_13-145-240_1_0 > div > div.item-action > ul > li.price-current > sup
+            item_price = container.div.div.ul.li.strong
+            item_price_2 = container.div.div.ul.li.sup
+            print(item_price + item_price_2)
+            print()
         
         except:
-            print("ERROR")
+            print("No Brand Name")
+            print("No Name")
+            print()
 
     
 
