@@ -1,12 +1,12 @@
-import os
-import time
+import os 
+import time as jakePack
 from urllib.request import urlopen as ureq
 from bs4 import BeautifulSoup as bs
 
 cls = lambda: os.system('cls')
 
 def wait(timeX):
-    time.sleep(timeX)
+    jakePack.sleep(timeX)
 
 def main():
     my_url = "https://www.newegg.com/p/pl?d=graphic+card"
